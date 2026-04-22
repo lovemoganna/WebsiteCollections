@@ -1,0 +1,9 @@
+{
+  "name": "网站收藏卡片集",
+  "description": "一个私人专属的网站收藏夹，以卡片瀑布流形式展示收藏的网站缩略图。",
+  "requestFramePermissions": [
+    "clipboard-read",
+    "clipboard-write"
+  ],
+  "majorCapabilities": []
+}

@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Google AI Studio App</title>
+    <script>
+      // Intercept fetch assignments to prevent "Cannot set property fetch of #<Window> which has only a getter"
+      // This can happen if extensions or certain libraries try to polyfill fetch.
+      try {
+        const _fetch = window.fetch;
+        let currentFetch = _fetch;
+        Object.defineProperty(window, 'fetch', {
+          configurable: true,
+          enumerable: true,
+          get: () => currentFetch,
+          set: (val) => {
+            currentFetch = val;
+          }
+        });
+      } catch (e) {
+        // Ignore if already non-configurable
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
